@@ -1,0 +1,15 @@
+<style>
+    td, th {
+        padding: 8px;
+    }
+    th {
+        text-align: left;
+    }
+</style>
+
+
+<div class="menu">
+    <span class="menuitem">
+        <a href = "/books/list">Books</a>
+    </span>
+</div>
