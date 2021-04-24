@@ -86,6 +86,7 @@ struct HitCount {
 struct Product {
     title:String,
     url:String,
+    img_url:String,
     about:String,
     price:String,
 }
@@ -105,9 +106,10 @@ fn index(q: Option<String>,max:Option<NonZeroUsize>,connection: Conn) -> Json<Ve
         if let Ok(item) = result {
             let title = String::from(item.get("title").and_then(Bson::as_str).unwrap_or("???"));
             let url = String::from(item.get("url").and_then(Bson::as_str).unwrap_or("???"));
+            let img_url = String::from(item.get("img_url").and_then(Bson::as_str).unwrap_or("???"));
             let price = String::from(item.get("price").and_then(Bson::as_str).unwrap_or("???"));
             let about = String::from(item.get("about").and_then(Bson::as_str).unwrap_or("???"));
-            vec.push(Product{ title, price, about, url });
+            vec.push(Product{ title, price, about, url, img_url });
         }
     }
     // let mut context = Context::new();
